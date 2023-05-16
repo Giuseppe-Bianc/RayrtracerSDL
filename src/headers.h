@@ -66,8 +66,8 @@ namespace SDLRT {
 	static constexpr double NO_COLOR = 0.0;
 	static constexpr double EPSILON = 1e-22;
 	// Dimensioni della finestra
-	static constexpr int w = 800;
-	static constexpr double aspect_ratio = 16.0 / 9.0;
+	static constexpr int w = 400;
+	static constexpr double aspect_ratio = 3.0 / 2.0;
 	static constexpr int samples_per_pixel = 100;
 	static constexpr int max_depth = 50;
 	static constexpr int h = CAST_I(w/aspect_ratio);
