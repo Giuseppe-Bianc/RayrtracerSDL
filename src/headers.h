@@ -12,7 +12,11 @@
 #define GLM_FORCE_PRECISION_HIGHP_DOUBLE
 #define GLM_FORCE_PRECISION_HIGHP_INT
 #define GLM_FORCE_PRECISION_HIGHP_FLOAT
-//#define GLM_FORCE_MESSAGES
+#ifdef _MSC_VER
+// Microsoft Visual C++ Compiler
+#pragma warning (push, 0)
+#endif
+
 #include <SDL.h>
 #include <glm/glm.hpp>
 #include <glm/gtx/norm.hpp>
@@ -28,6 +32,12 @@
 #include <memory>
 #include <cstdlib>
 #include <ctime>
+// Restore warning levels.
+#ifdef _MSC_VER
+	// Microsoft Visual C++ Compiler
+#pragma warning (pop)
+#endif
+
 
 #define CAST_ST(x) static_cast<std::size_t>((x))
 #define CAST_UC(x) static_cast<unsigned char>((x))

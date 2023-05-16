@@ -35,6 +35,9 @@
     <ClInclude Include="src\Ray.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="src\rstb_image.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />

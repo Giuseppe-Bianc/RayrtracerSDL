@@ -177,6 +177,7 @@
     <ClInclude Include="src\Color.h" />
     <ClInclude Include="src\headers.h" />
     <ClInclude Include="src\Ray.h" />
+    <ClInclude Include="src\rstb_image.h" />
     <ClInclude Include="src\sdltemplate.h" />
     <ClInclude Include="src\Vec3.h" />
   </ItemGroup>
