@@ -1,2 +1,2 @@
 # RaytracerSDL
-un  raytracer in  c++21
+un  raytracer in  c++20
