@@ -32,6 +32,9 @@
 #include <memory>
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
+#include <limits>
+#include <random>
 // Restore warning levels.
 #ifdef _MSC_VER
 	// Microsoft Visual C++ Compiler

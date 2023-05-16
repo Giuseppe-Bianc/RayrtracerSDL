@@ -176,9 +176,13 @@
   <ItemGroup>
     <ClInclude Include="src\Color.h" />
     <ClInclude Include="src\headers.h" />
+    <ClInclude Include="src\Hittable.h" />
+    <ClInclude Include="src\Hittable_list.h" />
     <ClInclude Include="src\Ray.h" />
     <ClInclude Include="src\rstb_image.h" />
+    <ClInclude Include="src\rtweekend.h" />
     <ClInclude Include="src\sdltemplate.h" />
+    <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\Vec3.h" />
   </ItemGroup>
   <ItemGroup>
