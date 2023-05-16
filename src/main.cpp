@@ -3,8 +3,15 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include <stb_image_write.h>
 #include "sdltemplate.h"
+#include "Ray.h"
 #include "Color.h"
 #include "Vec3.h"
+
+color ray_color(const ray& r) {
+    vec3 unit_direction = unit_vector(r.direction());
+    auto t = 0.5 * (unit_direction.y() + 1.0);
+    return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
+}
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
    
@@ -15,17 +22,10 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     for (int j = SDLRT::h -1; j >= 0; --j) {
         std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
         for (int i = 0; i < SDLRT::w; ++i) {
-            color pcolor(double(i) / (SDLRT::w - 1), double(j) / (SDLRT::h - 1), 0.25);
-
-            auto ir = CAST_UC(SDLRT::scale * pcolor[0]);
-            auto ig = CAST_UC(SDLRT::scale * pcolor[1]);
-            auto ib = CAST_UC(SDLRT::scale * pcolor[2]);
-            
+            color pcolor{ CAST_D(i) / (SDLRT::w - 1), CAST_D(j) / (SDLRT::h - 1), 0.25 };
             std::size_t index = SDLRT::nCh * CAST_ST(j * SDLRT::w + i);
-            data.at(index) = ir;
-            data.at(index + 1) = ig;
-            data.at(index + 2) = ib;
-            sdltemplate::setDrawColor(sdltemplate::createColor(ir, ig, ib, 255));
+            write_color(data, pcolor, index);
+            sdltemplate::setDrawColor(sdltemplate::createColor(data.at(index), data.at(index+1), data.at(index+2), 255));
             sdltemplate::drawPoint(i, SDLRT::h-j);
         }
     }
